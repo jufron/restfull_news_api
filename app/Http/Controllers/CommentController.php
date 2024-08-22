@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     public function index ()
     {
-        return response()->json([
-            'data'  => [
-                'comments'
-            ]
-        ]);
+        $comments = Comment::query()->latest()->get();
+
     }
 }
